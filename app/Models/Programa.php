@@ -1,0 +1,14 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Programa extends Model
+{
+    protected $table = 'tbl_programas';
+    protected $fillable = [
+        'gls_programa',
+        'estado',
+    ];
+}
