@@ -13,11 +13,19 @@ class Calendario extends Model
 
     protected $fillable = [
         'id_proyecto',
+        'id_tipo',
         'estado',
+        'descripcion',
+        'fecha',
     ];
 
     public function proyecto()
     {
         return $this->belongsTo(Proyecto::class, 'id_proyecto');
+    }
+
+    public function tipo()
+    {
+        return $this->belongsTo(Tipo::class, 'id_tipo');
     }
 }

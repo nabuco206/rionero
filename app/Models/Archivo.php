@@ -10,6 +10,13 @@ class Archivo extends Model
     protected $fillable = [
         'nombre',
         'path',
+        'id_tipo',
+        'id_proyecto',
         'estado',
     ];
+
+    public function tipo()
+    {
+        return $this->belongsTo(Tipo::class, 'id_tipo');
+    }
 }

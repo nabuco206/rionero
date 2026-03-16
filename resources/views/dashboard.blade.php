@@ -1,17 +1,19 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
-        </h2>
-    </x-slot>
+@extends('adminlte::page')
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900">
-                    {{ __("You're logged in!") }}
-                </div>
-            </div>
-        </div>
-    </div>
-</x-app-layout>
+@section('title', 'Tablero')
+
+@section('content_header')
+    <h1>Panel de Control</h1>
+@stop
+
+@section('content')
+    <p>Bienvenido a tu proyecto Laravel en 2026.</p>
+
+    <!-- Botón para abrir el modal -->
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addCalendarioModal">
+        Agregar Calendario
+    </button>
+
+    <!-- Incluir el modal -->
+    {{-- @include('components.add-calendario-modal') --}}
+@stop

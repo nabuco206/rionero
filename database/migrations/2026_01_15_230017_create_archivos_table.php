@@ -15,7 +15,8 @@ return new class extends Migration
             $table->id();
             $table->BigInteger('id_proyecto');
             $table->string('nombre');
-            $table->string('path');
+            $table->BigInteger('id_tipo');
+            $table->string('path')->nullable();
             $table->boolean('estado')->default(true);
             $table->timestamps();
         });

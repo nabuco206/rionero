@@ -25,6 +25,10 @@ class ArchivoResource extends Resource
             ->schema([
                 Forms\Components\TextInput::make('nombre')->required(),
                 Forms\Components\TextInput::make('path')->required(),
+                Forms\Components\Select::make('id_tipo')
+                    ->label('Tipo de Archivo')
+                    ->options(\App\Models\Tipo::where('tipo', 1)->pluck('gls_tipo', 'id'))
+                    ->required(),
                 Forms\Components\Toggle::make('estado')->label('Activo'),
             ]);
     }

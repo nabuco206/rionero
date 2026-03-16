@@ -13,14 +13,18 @@ return new class extends Migration
     {
         Schema::create('tbl_proyectos', function (Blueprint $table) {
             $table->id();
-            $table->integer('codigo');
+            $table->string('codigo');
             $table->string('nombre');
             $table->foreignId('id_comuna')->constrained('tbl_comunas')->onDelete('cascade');
             $table->string('supervisor_1')->nullable();
             $table->string('supervisor_2')->nullable();
             $table->integer('nmro_beneficiarios')->default(0);
-            $table->date('fecha');
+            $table->integer('nmro_resolucion')->nullable();
+            $table->date('fecha_resolucion')->nullable();
+            $table->date('fecha_ini_obra')->nullable();
+            $table->date('fecha_vencimiento')->nullable();
             $table->foreignId('id_programa')->constrained('tbl_programas')->onDelete('cascade');
+            $table->string('color')->nullable();
             $table->boolean('estado')->default(true);
             $table->timestamps();
         });

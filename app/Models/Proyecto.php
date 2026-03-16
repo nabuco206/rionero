@@ -14,8 +14,12 @@ class Proyecto extends Model
         'supervisor_1',
         'supervisor_2',
         'nmro_beneficiarios',
-        'fecha',
+        'nmro_resolucion',
+        'fecha_resolucion',
+        'fecha_ini_obra',
+        'fecha_vencimiento',
         'id_programa',
+        'color',
         'estado',
     ];
 
@@ -28,7 +32,16 @@ class Proyecto extends Model
     {
         return $this->belongsTo(Programa::class, 'id_programa');
     }
-   
+    
+    public function archivos()
+    {
+        return $this->hasMany(Archivo::class, 'id_proyecto');
+    }
+
+    public function calendarios()
+    {
+        return $this->hasMany(Calendario::class, 'id_proyecto');
+    }
 }
 
 

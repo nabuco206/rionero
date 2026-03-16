@@ -33,6 +33,14 @@ new class extends Component
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')" wire:navigate>
                         {{ __('Dashboard') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('proyectos.index')" :active="request()->routeIs('proyectos.index')" wire:navigate>
+                        Proyectos
+                    </x-nav-link>
+                        <form wire:submit.prevent="logout">
+                            <button type="submit" class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-red-500 bg-white hover:text-red-700 focus:outline-none transition ease-in-out duration-150">
+                                <i class="fas fa-sign-out-alt"></i> {{ __('Cerrar sesión') }}
+                            </button>
+                        </form>
                 </div>
             </div>
 
@@ -53,7 +61,7 @@ new class extends Component
 
                     <x-slot name="content">
                         <x-dropdown-link :href="route('profile')" wire:navigate>
-                            {{ __('Profile') }}
+                            {{ __('Profileeeeee') }}
                         </x-dropdown-link>
 
                         <!-- Authentication -->
@@ -83,6 +91,9 @@ new class extends Component
         <div class="pt-2 pb-3 space-y-1">
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')" wire:navigate>
                 {{ __('Dashboard') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('proyectos.index')" :active="request()->routeIs('proyectos.index')" wire:navigate>
+                Proyectos
             </x-responsive-nav-link>
         </div>
 

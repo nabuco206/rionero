@@ -11,6 +11,9 @@ return new class extends Migration {
             $table->id();
             // $table->unsignedBigInteger('id_proyecto');
             $table->BigInteger('id_proyecto');
+            $table->BigInteger('id_tipo');
+            $table->string('descripcion')->nullable();
+            $table->date('fecha');
             $table->boolean('estado')->default(true);
             $table->timestamps();
 
