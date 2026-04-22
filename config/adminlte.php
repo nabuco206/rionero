@@ -257,7 +257,7 @@ return [
     */
 
     'use_route_url' => false,
-    'dashboard_url' => 'home',
+    'dashboard_url' => 'proyectos',
     'logout_url' => 'logout',
     'login_url' => 'login',
     'register_url' => 'register',
@@ -321,9 +321,15 @@ return [
             'icon' => 'fas fa-fw fa-folder',
         ],
          [
-            'text' => 'Calendario',
+            'text' => 'Calendariooo',
             'url' => 'calendario',
             'icon' => 'fas fa-fw fa-calendar',
+        ],
+          [
+            'text' => 'Admin',
+            'url' => '/admin',
+            'icon' => 'fas fa-id-card',
+            'target'  => '_blank',
         ],
         [
             'text' => 'blog',
@@ -390,17 +396,22 @@ return [
         [
             'text' => 'Rojo',
             'icon_color' => 'red',
-            'url' => '#',
+            'url' => 'proyectos?color=rojo',
         ],
         [
             'text' => 'Amarillo',
             'icon_color' => 'yellow',
-            'url' => '#',
+            'url' => 'proyectos?color=amarillo',
         ],
         [
             'text' => 'Celeste',
             'icon_color' => 'cyan',
-            'url' => '#',
+            'url' => 'proyectos?color=celeste',
+        ],
+        [
+            'text' => 'Sin color',
+            'icon' => 'far fa-circle',
+            'url' => 'proyectos?color=sin-color',
         ],
     ],
 

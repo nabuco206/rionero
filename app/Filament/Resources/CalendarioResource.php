@@ -15,6 +15,11 @@ class CalendarioResource extends Resource
     protected static ?string $model = Calendario::class;
     protected static ?string $navigationIcon = 'heroicon-o-calendar-days';
 
+    public static function shouldRegisterNavigation(): bool
+    {
+        return false;
+    }
+
     public static function form(Form $form): Form
     {
         return $form->schema([

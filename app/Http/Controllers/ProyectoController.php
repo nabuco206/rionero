@@ -7,10 +7,24 @@ use Illuminate\Http\Request;
 
 class ProyectoController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $proyectos = Proyecto::with(['comuna', 'programa'])->get();
-        return view('proyectos.index', compact('proyectos'));
+        $color = $request->query('color');
+        $coloresPermitidos = ['rojo', 'amarillo', 'celeste'];
+
+        $proyectos = Proyecto::with(['comuna', 'programa'])
+            ->when(in_array($color, $coloresPermitidos, true), function ($query) use ($color) {
+                $query->where('color', $color);
+            })
+            ->when($color === 'sin-color', function ($query) {
+                $query->where(function ($q) {
+                    $q->whereNull('color')
+                        ->orWhere('color', '');
+                });
+            })
+            ->get();
+
+        return view('proyectos.index', compact('proyectos', 'color'));
     }
 
     public function create()
@@ -58,6 +72,7 @@ class ProyectoController extends Controller
             'fecha_resolucion' => 'nullable|date',
             'fecha_ini_obra' => 'nullable|date',
             'fecha_vencimiento' => 'nullable|date',
+            'fecha' => 'required|date',
             'id_programa' => 'required|exists:tbl_programas,id',
             'estado' => 'required|in:0,1',
             'color' => 'nullable|in:rojo,amarillo,celeste',
